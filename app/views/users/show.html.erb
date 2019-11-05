@@ -10,11 +10,18 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @user.email %>
+  <%= current_user.email %>
 </p>
 
 <h2>Đã đề xuất</h2>
-<%= render @user.posts %>
+<% if @user.role == "manager" %>
+	<% @user_manager.each do |user| %>
+		<%= render user.posts %>
+	<% end %>
+<% else %>	
+	<%= render @user.posts %>
+<% end %>	
+
  
 
  
