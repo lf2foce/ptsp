@@ -1,0 +1,28 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @user.email %>
+</p>
+
+<h2>Đã đề xuất</h2>
+<%= render @user.posts %>
+ 
+
+ 
+<h2>Add a request:</h2>
+<%= form_with(model: [ @user, @user.posts.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+ 
+<%#= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', home_path %>

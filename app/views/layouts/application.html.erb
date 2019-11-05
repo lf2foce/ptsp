@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample6</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+
+    <% if notice %>
+      <aside id="notice"><%= notice %></aside>
+    <% end %>
+
+    <% if alert %>
+      <aside id="alert"><%= alert %></aside>
+    <% end %>
+    
+    <%= yield %>
+  </body>
+</html>
