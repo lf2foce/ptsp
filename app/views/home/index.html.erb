@@ -1,10 +1,39 @@
-<h1>bsc margin journal</h1>
+<h5>bsc margin journal</h5>
+<% if @user.role == "sale" %>
+	<% @user_manager.each do |manager| %>					
+		<div class="card">
+		  <div class="card-header">
+		    Thông báo
+		  </div>
+		  <ul class="list-group list-group-flush">
+		  	<% manager.posts.each do |post| %>
+		    	<li class="list-group-item"><%= post.content %> by: <strong><%= manager.name %></strong></li> 
+		    <% end %>
+		  </ul>
+		</div>
+	<% end %>
+<% end %>
 
-<%= link_to 'portal', user_path(@user) %>
+<div class="row">
+	<div class="col bg-success" >Pending</div>
+	<div class="col" style="background-color: #f2fff8">
+		<% if @user.role == "manager" %>
+			<% @user_sale.each do |user| %>
+				<%= render user.posts.approved %>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="col bg-light">Rejected
+		<% if @user.role == "manager" %>
+			<% @user_sale.each do |user| %>
+				<%= render user.posts.rejected %>
+			<% end %>
+		<% end %>
+	</div>
+</div>
 
-<a class="edit-profile" href="<%= edit_user_path(current_user) %>">
-  <button>Edit Profile</button>
-</a>
+
+
 
 
 <% if @user.date_of_birth.present? %>

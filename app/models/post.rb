@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user, default: -> { Current.user }
   validates :title, presence: true,
-                    length: { minimum: 5 }
+                    length: { minimum: 3 }
 
 	after_create_commit :post_pending                
 	scope :approved, -> { where(post_status: "approved") }

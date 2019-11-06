@@ -1,23 +1,27 @@
 
  
-<p>
-  <strong>Post:</strong>
-  <%= post.title %> by <%= post.user.name %>  <div class="<%= post.post_status %>">status: <%= post.post_status %></div>
+
+<p> <strong><%= post.title %></strong>
+   by <%= post.user.name %>
+<%= link_to 'Xoá', [post.user, post],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>   
+
+    
+	  <div class="<%= post.post_status %>">status: <%= post.post_status %></div>
 
  
 
-  <%= link_to 'Destroy Post', [post.user, post],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+  
 </p>
 
 <% if @user.role == "manager" %>
 	<%= form_with(model: [post.user, post], data: { confirm: "You sure?"}) do |fa| %>
 	  <%= fa.hidden_field :post_status, :value => "approved" %>
-	  <%= fa.submit "Approve", class: "btn btn-large btn-success" %>
+	  <%= fa.submit "Approve", class: "btn btn-sm  btn-outline-success" %>
 	<% end %>
 	<%= form_with(model: [post.user, post], data: { confirm: "You sure?" }) do |fr| %>
 	  <%= fr.hidden_field :post_status, :value => "rejected"  %>
-	  <%= fr.submit "Reject", class: "btn btn-large btn-danger" %>
+	  <%= fr.submit "Reject", class: "btn btn-sm btn-outline-secondary" %>
 	<% end %>
 <% end %>    
