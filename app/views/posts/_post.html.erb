@@ -2,7 +2,7 @@
  
 <p>
   <strong>Post:</strong>
-  <%= post.title %> by <%= post.user.name %>
+  <%= post.title %> by <%= post.user.name %>  <div class="<%= post.post_status %>">status: <%= post.post_status %></div>
 
  
 
@@ -10,3 +10,14 @@
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 </p>
+
+<% if @user.role == "manager" %>
+	<%= form_with(model: [post.user, post], data: { confirm: "You sure?"}) do |fa| %>
+	  <%= fa.hidden_field :post_status, :value => "approved" %>
+	  <%= fa.submit "Approve", class: "btn btn-large btn-success" %>
+	<% end %>
+	<%= form_with(model: [post.user, post], data: { confirm: "You sure?" }) do |fr| %>
+	  <%= fr.hidden_field :post_status, :value => "rejected"  %>
+	  <%= fr.submit "Reject", class: "btn btn-large btn-danger" %>
+	<% end %>
+<% end %>    

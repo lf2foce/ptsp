@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   	 @post = Post.find(params[:id])
  
 	  if @post.update(post_params)
-	    redirect_to current_user
+	    redirect_to home_path
 	  else
 	    render 'edit'
 	  end

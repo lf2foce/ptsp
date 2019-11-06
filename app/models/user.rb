@@ -9,6 +9,8 @@ class User < ApplicationRecord
 	scope :pending, -> { 
 		joins(:posts).where(posts: {post_status: "pending"})
 	}
-	scope :manager, -> { where(role: "manager") }
 	#scope :rejected, -> { where(post_status: "rejected") }
+	scope :manager, -> { where(role: "manager") }
+	scope :sale, -> { where(role: "sale") }
+	
 end

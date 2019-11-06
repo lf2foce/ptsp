@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'scaffolds.scss';
+
+.approved {
+	color: green;
+}
+
+.rejected {
+	color: red;
+}

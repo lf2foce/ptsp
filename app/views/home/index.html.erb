@@ -1,4 +1,5 @@
-<h1>This is my home page</h1>
+<h1>bsc margin journal</h1>
+
 <%= link_to 'portal', user_path(@user) %>
 
 <a class="edit-profile" href="<%= edit_user_path(current_user) %>">
@@ -9,3 +10,13 @@
 <% if @user.date_of_birth.present? %>
 	<%#= ((Time.zone.now - @user.date_of_birth.to_time) / 1.year.seconds).floor %>
 <% end %>
+
+
+<% if @user.role == "manager" %>
+	<% @user_sale.each do |user| %>
+		<%= render user.posts %>
+	<% end %>
+<% else %>	
+	"Đợi duyệt"
+	<%= render @user.posts %>
+<% end %>	

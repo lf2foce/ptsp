@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
   	@user_manager = User.manager
+  	@user_sale = User.sale
   	@user = current_user
 
   	
