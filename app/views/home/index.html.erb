@@ -15,15 +15,24 @@
 <% end %>
 
 <div class="row">
-	<div class="col bg-success" >Pending</div>
-	<div class="col" style="background-color: #f2fff8">
+	<div class="col-md-4" >Pending
+		<% if @user.role == "manager" %>
+			<% @user_sale.each do |user| %>
+				<%= render user.posts.pending %>
+			<% end %>
+		<% else %>	
+			<%= render @user.posts %>
+		<% end %>	
+
+	</div>
+	<div class="col-md-4" style="background-color: #f2fff8"> Approved
 		<% if @user.role == "manager" %>
 			<% @user_sale.each do |user| %>
 				<%= render user.posts.approved %>
 			<% end %>
 		<% end %>
 	</div>
-	<div class="col bg-light">Rejected
+	<div class="col-md-4 bg-light">Rejected
 		<% if @user.role == "manager" %>
 			<% @user_sale.each do |user| %>
 				<%= render user.posts.rejected %>
@@ -41,11 +50,3 @@
 <% end %>
 
 
-<% if @user.role == "manager" %>
-	<% @user_sale.each do |user| %>
-		<%= render user.posts %>
-	<% end %>
-<% else %>	
-	"Đợi duyệt"
-	<%= render @user.posts %>
-<% end %>	

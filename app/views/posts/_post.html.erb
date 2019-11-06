@@ -16,12 +16,14 @@
 </p>
 
 <% if @user.role == "manager" %>
-	<%= form_with(model: [post.user, post], data: { confirm: "You sure?"}) do |fa| %>
+<div class="row">
+	<%= form_with(model: [post.user, post], data: { confirm: "You sure?"}, class: "form-group") do |fa| %>
 	  <%= fa.hidden_field :post_status, :value => "approved" %>
-	  <%= fa.submit "Approve", class: "btn btn-sm  btn-outline-success" %>
+	  <%= fa.submit "Approve", class: "btn  btn-outline-success ml-3" %>
 	<% end %>
-	<%= form_with(model: [post.user, post], data: { confirm: "You sure?" }) do |fr| %>
+	<%= form_with(model: [post.user, post], data: { confirm: "You sure?" }, class: "form-group") do |fr| %>
 	  <%= fr.hidden_field :post_status, :value => "rejected"  %>
-	  <%= fr.submit "Reject", class: "btn btn-sm btn-outline-secondary" %>
+	  <%= fr.submit "Reject", class: "btn btn-outline-secondary ml-3" %>
 	<% end %>
+</div>	
 <% end %>    

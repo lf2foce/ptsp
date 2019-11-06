@@ -16,29 +16,29 @@
 </p>
 
 <div class="row">
-	<div class="col-6">
+	<div class="col-md-6">
 		<% if @user.role == "manager" %> 
-			<h2>Gửi thông báo cho Sale</h2>
+			<h5>Gửi thông báo cho Sale</h5>
 			
 		<% else %>	
-			<h2>Add a request:</h2>
+			<h5>Add a request:</h5>
 		<% end %>	
 		<%= form_with(model: [ @user, @user.posts.build ], local: true) do |form| %>
 		  <p>
 		    <%= form.label :title %><br>
-		    <%= form.text_field :title %>
+		    <%= form.text_field :title, class: "form-control" %>
 		  </p>
 		  <p>
 		    <%= form.label :content %><br>
-		    <%= form.text_area :content %>
+		    <%= form.text_area :content, class: "form-control"  %>
 		  </p>
 		  <p>
 		    <%= form.submit %>
 		  </p>
 		<% end %>
 	</div>
-	<div class="col-6">
-		<h2>Đã đề xuất</h2>
+	<div class="col-md-6">
+		<h5>Đã đề xuất</h5>
 		<% if @user.role == "manager" %>
 			<% @user_manager.each do |user| %>
 				<%= render user.posts %>
