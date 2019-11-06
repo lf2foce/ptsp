@@ -9,46 +9,48 @@
 <% end %>
 
   <%= current_user.role %>
-<a class="edit-profile" href="<%= edit_user_path(current_user) %>">
-  <button>Edit Profile</button>
-</a>
 
 <p>
-  <strong>Title:</strong>
+  <strong>email:</strong>
   <%= current_user.email %>
 </p>
 
-<h2>Đã đề xuất</h2>
-<% if @user.role == "manager" %>
-	<% @user_manager.each do |user| %>
-		<%= render user.posts %>
-	<% end %>
-<% else %>	
-	<%= render @user.posts %>
-<% end %>	
-
+<div class="row">
+	<div class="col-6">
+		<% if @user.role == "manager" %> 
+			<h2>Gửi thông báo cho Sale</h2>
+			
+		<% else %>	
+			<h2>Add a request:</h2>
+		<% end %>	
+		<%= form_with(model: [ @user, @user.posts.build ], local: true) do |form| %>
+		  <p>
+		    <%= form.label :title %><br>
+		    <%= form.text_field :title %>
+		  </p>
+		  <p>
+		    <%= form.label :content %><br>
+		    <%= form.text_area :content %>
+		  </p>
+		  <p>
+		    <%= form.submit %>
+		  </p>
+		<% end %>
+	</div>
+	<div class="col-6">
+		<h2>Đã đề xuất</h2>
+		<% if @user.role == "manager" %>
+			<% @user_manager.each do |user| %>
+				<%= render user.posts %>
+			<% end %>
+		<% else %>	
+			<%= render @user.posts %>
+		<% end %>	
+	</div>
  
-
-<% if @user.role == "manager" %> 
-	<h2>Gửi thông báo cho Sale</h2>
 	
-<% else %>	
-	<h2>Add a request:</h2>
-<% end %>	
-	<%= form_with(model: [ @user, @user.posts.build ], local: true) do |form| %>
-	  <p>
-	    <%= form.label :title %><br>
-	    <%= form.text_field :title %>
-	  </p>
-	  <p>
-	    <%= form.label :content %><br>
-	    <%= form.text_area :content %>
-	  </p>
-	  <p>
-	    <%= form.submit %>
-	  </p>
-	<% end %>
 
  
-<%#= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', home_path %>
+<%#= link_to 'Edit', edit_user_path(@user) %>
+
+</div>
