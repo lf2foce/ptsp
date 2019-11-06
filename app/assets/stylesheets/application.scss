@@ -13,8 +13,8 @@
  *= require_tree .
  *= require_self
  */
-
-@import 'scaffolds.scss';
+@import "bootstrap/scss/bootstrap.scss";
+//@import 'scaffolds.scss';
 
 .approved {
 	color: green;
