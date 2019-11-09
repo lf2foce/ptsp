@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'project/index'
   devise_for :users
   resources :users, only: [:show, :edit, :update] do
   	resources :posts

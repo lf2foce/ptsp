@@ -1,0 +1,89 @@
+  <a class="btn btn-primary mr-auto"  href="#">
+         <i class="fas fa-plus pull-left"></i>update
+       </a> 
+       <button type="button" class="btn btn-success" aria-label="Left Align">
+         <span class="fa fa-trash-o fa-lg" aria-hidden="true"></span> haha
+         </button>
+         <a id="new-project-buttoncxv"  class="btn btn-primary mr-auto" style="border-radius: 1.5rem;" href="#">
+         <i class="fas fa-plus"></i> New
+       </a> 
+<nav class="navbar navbar-expand-lg justify-content-between">
+  <a class="navbar-brand" href="#">
+    <img src="<%= image_url('navbar-icon') %>"  height="30" class="d-inline-block align-top" alt="">
+  </a>
+  <ul class="navbar-nav align-self-center">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Latest activity</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Pings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Hey!</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Campfires</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Reports</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Find</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav align-self-center">
+    <li class="nav-item navbar-profile-icon">
+      <a class="nav-link" href="#">B</a>
+    </li>
+  </ul>
+</nav>
+
+<main class="container home">
+  <div class="row home-header">
+    <div class="col-md-1 mr-auto">
+      <button id="new-project-button"  class="btn btn-primary mr-auto"> New </button>
+      <div class="project-popover is-hidden" id="new-project-popover">
+        <div class="form-group">
+          <input type="text" placeholder="Name this project" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success" >Save</button>
+        <button id="cancel-project-popover" class="btn btn-secondary" >Cancel</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3 class="text-center project-index">Projects</h3> 
+    </div>
+    <div class="col-md-1 ml-auto">
+      <button class="btn ml-auto">...</button> 
+    </div>
+  </div>  
+  <div class="row home-projects">
+    <div class="col-md-4 project-col">
+      <a href="#" class="project-card">
+        <h4>Dummy Project</h4>
+        <p>What a wonderful project this will be!</p>
+      </a>
+    </div>
+    <div class="col-md-4 project-col">
+      <a href="#" class="project-card">
+        <h4>Wonderful Project</h4>
+        <p>This will be a most wonderful project</p>
+      </a>
+    </div>
+    <div class="col-md-4 project-col">
+      <a href="#" class="project-card">
+        <h4>Yet another project?</h4>
+        <p>Busy, busy!</p>
+      </a>
+    </div>
+    <div class="col-md-4 project-col">
+      <a href="#" class="project-card">
+        <h4>Lucky fourth project</h4>
+        <p>There has never been a luckier project than this one</p>
+      </a>
+    </div>
+  </div>
+</main>
