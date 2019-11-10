@@ -20,7 +20,7 @@ require("./project.js") //from packs/project.js
 
 import 'bootstrap';
 import './style.scss'
-import './project.scss'
+//import './project.scss'
 
 
 //console.log("its's work")
